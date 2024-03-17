@@ -283,7 +283,7 @@ int main(int argc, char **argv) {
     gamma_r = atof(argv[1]);
     gamma_g = atof(argv[2]);
     gamma_b = atof(argv[3]);
-  }else if (argc == 2) {
+  } else if (argc == 2) {
     kelvin = atof(argv[1]); // eg. 3000.0
 
 //    printf("Hi1\n");
