@@ -231,7 +231,7 @@ static int trapped_error_code = 0;
 static int (*old_error_handler) (Display *, XErrorEvent *);
 
 static int
-error_handler(Display     *display, XErrorEvent *error) {
+error_handler(Display     *display __attribute__((unused)), XErrorEvent *error) {
     trapped_error_code = error->error_code;
     return 0;
 }
@@ -352,7 +352,7 @@ int main(int argc, char **argv) {
   XRRFreeScreenResources(res);
   XCloseDisplay(dpy); //calls XSync which calls XFlush
 #ifdef APPLY_TESTS
-  const static struct timespec slp = { 0, 10 * 1000 * 1000};
+  static const struct timespec slp = { 0, 10 * 1000 * 1000};
 //  static struct timespec slp;
 //  slp.tv_sec = 0;
 //  slp.tv_nsec= 10 * 1000 * 1000;

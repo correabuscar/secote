@@ -7,11 +7,14 @@ exefile="secote"
 exefile="$(realpath -- "$exefile")"
 #^ to handle the case when no path or relative path is given, and still be able to execute $exefile we tranform it into absolute path!
 echo "exefile=${exefile}"
-compiler="clang"
+compiler="gcc"
 commonflags=(
   #optionals:
   -Wall
+  #-Weverything #way more than -Wall
+  -Wextra # Enables additional warning messages, beyond those included in -Wall.
   -Werror
+  -Wno-missing-prototypes
   -ggdb
   "-D_FORTIFY_SOURCE=2"
   "-std=c99"
